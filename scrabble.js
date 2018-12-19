@@ -32,7 +32,7 @@ var tiles = [ //use amount and value when distributing and tallying pieces
     {"letter":"X", "value":8,  "amount":1},
     {"letter":"Y", "value":4,  "amount":2},
     {"letter":"Z", "value":10, "amount":1},
-    {"letter":"_", "value":0,  "amount":2}
+    {"letter":"blank", "value":0,  "amount":2}
 ];
 
 var tiles_placed = [  //store which draggable tile holds which letter piece
