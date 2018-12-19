@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--FILE: http://weblab.cs.uml.edu/~lreynold/scrabble.html
+91.61 GUI Programming I
+Assignment 9: Drag & Drop Scrabble
+Liam Reynolds, University of MA, Lowell. CS.
+liam_reynolds@student.uml.edu
+Copyright(c) 25 November 2018. All rights reserved.-->
+<html lang="en">
+	<head>
+			<meta charset="utf-8">
+			<title>JQuery Validation mult. table</title>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+				integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+				crossorigin="anonymous">
+      <link rel = "stylesheet" type = "text/css" href = "css/scrabble.css">
+      <link rel = "stylesheet" type = "text/css" href ="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+			<script src = "https://code.jquery.com/jquery-3.3.1.js"></script>
+			<script src = "https://code.jquery.com/jquery-1.11.1.min.js"></script>
+			<script src = "https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+			<script src = "https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.min.js"></script>
+      <script src = "https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+			<script type = "text/javascript" src = "js/scrabble.js"></script>
+    </head>
+    <body>
+
+      <div class = "container">
+
+				<div class = "headcontent">
+        		<h1> ONE LINE SCRABBLE </h1>
+						<p id = "introp"> Drag and drop letter tiles to spell high-point value words!</p>
+					<hr id = "headline">
+				</div>
+
+				<div class = "oneline">
+
+          	<img class = "line" src = "img/oneline.png">
+						<div class = "drops">
+						 	<img id = "drop0" src = "img/blankDrop.png" class = "one droppable ui-droppable">
+						 	<img id = "drop1" src = "img/blankDrop.png" class = "droppable ui-droppable">
+							<img id = "drop2" src = "img/blankDrop.png" class = "droppable ui-droppable">
+							<img id = "drop3" src = "img/blankDrop.png" class = "droppable ui-droppable">
+							<img id = "drop4" src = "img/blankDrop.png" class = "droppable ui-droppable">
+							<img id = "drop5" src = "img/blankDrop.png" class = "droppable ui-droppable">
+							<img id = "drop6" src = "img/blankDrop.png" class = "droppable ui-droppable">
+							<img id = "drop7" src = "img/blankDrop.png" class = "droppable ui-droppable">
+							<img id = "drop8" src = "img/blankDrop.png" class = "droppable ui-droppable">
+							<img id = "drop9" src = "img/blankDrop.png" class = "droppable ui-droppable">
+							<img id = "drop10" src = "img/blankDrop.png" class = "droppable ui-droppable">
+							<img id = "drop11" src = "img/blankDrop.png" class = "droppable ui-droppable">
+							<img id = "drop12" src = "img/blankDrop.png" class = "droppable ui-droppable">
+							<img id = "drop13" src = "img/blankDrop.png" class = "droppable ui-droppable">
+							<img id = "drop14" src = "img/blankDrop.png" class = "droppable ui-droppable">
+					 </div>
+
+				</div>
+
+				<div id = "tiles"></div>
+				<br>
+
+				<button id = "submit" type = "submit" class = "btn btn-default"
+					onclick= "display_score();"> SUBMIT </button>
+
+				<button id = "reset" type = "submit" class = "btn btn-default"
+					onclick= "load_tiles();"> RESET </button>
+
+				<div id = "gameinfo">
+					<p> SCORE: <span id = "score"></span></p>
+				</div>
+
+      </div>
+
+			<script>
+				$(document).ready(function(){
+					load_tiles();
+					make_droppable();
+			});
+			</script>
+
+    </body>
+</html>

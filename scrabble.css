@@ -1,0 +1,178 @@
+/*FILE: http://weblab.cs.uml.edu/~lreynold/scrabble.html
+91.61 GUI Programming I
+Assignment 9: Drag & Drop Scrabble
+Liam Reynolds, University of MA, Lowell. CS.
+liam_reynolds@student.uml.edu
+Copyright(c) 25 November 2018. All rights reserved.*/
+body{
+  margin-top: 10px;
+  background-color: #080808;
+}
+.container{
+  margin: 0 auto;
+  width: 1150px;
+  padding: 60px;
+  /*background-color: #080808;
+  border-radius: 20px;*/
+}
+.headcontent{
+  margin: 0 auto;
+  width: 1000px;
+}
+.oneline{
+  margin: 0 auto;
+  width: 1000px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+.line{
+  width: 1000px;
+}
+h1{
+  text-align: left;
+  color: #F5F5F5;
+  font-size: 360%;
+  margin-left: -8px;
+}
+#introp{
+  margin-bottom: -10px;
+  margin-top: 25px;
+  color: #C8C8C8;
+}
+#headline{
+  border-color: #C8C8C8;
+}
+.drops{
+  font-size: 80%;
+  opacity: 0;
+  color: grey;
+}
+#drop0{
+  position: relative;
+  top: -65px;
+  left: 4px;
+  width: 60px;
+}
+#drop1{
+  position: relative;
+  top: -65px;
+  left: 8px;
+  width: 60px;
+}
+#drop2{
+  position: relative;
+  top: -65px;
+  left: 12px;
+  width: 60px;
+}
+#drop3{
+  position: relative;
+  top: -65px;
+  left: 16px;
+  width: 60px;
+}
+#drop4{
+  position: relative;
+  top: -65px;
+  left: 20px;
+  width: 60px;
+}
+#drop5{
+  position: relative;
+  top: -65px;
+  left: 24px;
+  width: 60px;
+}
+#drop6{
+  position: relative;
+  top: -65px;
+  left: 28px;
+  width: 60px;
+}
+#drop7{
+  position: relative;
+  top: -65px;
+  left: 30px;
+  width: 60px;
+}
+#drop8{
+  position: relative;
+  top: -65px;
+  left: 32px;
+  width: 60px;
+}
+#drop9{
+  position: relative;
+  top: -65px;
+  left: 34px;
+  width: 60px;
+}
+#drop10{
+  position: relative;
+  top: -65px;
+  left: 36px;
+  width: 60px;
+}
+#drop11{
+  position: relative;
+  top: -65px;
+  left: 38px;
+  width: 60px;
+}
+#drop12{
+  position: relative;
+  top: -65px;
+  left: 40px;
+  width: 60px;
+}
+#drop13{
+  position: relative;
+  top: -65px;
+  left: 42px;
+  width: 60px;
+}
+#drop14{
+  position: relative;
+  top: -65px;
+  left: 44px;
+  width: 60px;
+}
+#draggable{
+  background-color: #C8C8C8;
+  width: 60px;
+  height: 60px;
+  color: black;
+  margin-top: 100px;
+}
+#tiles{
+  margin-left: 15px;
+}
+.tileimg{
+  width: 50px;
+  height: 58px;
+  border-radius: 10px;
+  margin-left: 5px;
+}
+#submit{
+  margin-left: 20px;
+}
+#reset{
+  margin-left: 20px;
+  width: 60px;
+  font-size: 90%;
+  padding: 5px;
+  background-color: #080808;
+  color: #F5F5F5;
+}
+#score{
+  font-size: 140%;
+  margin-left: 10px;
+}
+#gameinfo{
+  color: white;
+  /*float: right;
+  margin-right: 280px;*/
+  margin-top: 20px;
+  margin-left: 24px;
+  font-size: 108%;
+}
