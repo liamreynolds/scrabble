@@ -1,8 +1,8 @@
   This scrabble game only contains one line of a typical game, but provides seven random tiles
 for the player each time the board is reset. Based on the tiles places, the player's score is summed
-using appropriate score modifiers. When a word is submitted, the user's total score will remain, and
+using the appropriate score modifiers. When a word is submitted, the user's total score will remain, and
 they are able to play an unlimited amount of additional rounds. I've found that after a large number of resets,
-the large amount of .png's being loaded dynamically onto the game board slow down the runtime of the game.
+the large amount of .png's being loaded dynamically into the game slows down the runtime.
 Although the board space resets every time a player generates new tiles, I haven't been able to solve the
 runtime problem.
 

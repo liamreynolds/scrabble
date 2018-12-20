@@ -134,7 +134,8 @@ function make_droppable(){  //make blankDrop elements droppable using jqery ui
 
 function load_tiles(){
 
-  $("#tiles").html(" "); //reset tiles space
+  //$("#tiles").html(" "); //reset tiles space
+  reset_board();
 
   for(var i = 0; i < 7; i++){ //choose random letter from tiles object
       var rand_index = Math.floor((Math.random() * 26) + 0);
@@ -153,4 +154,13 @@ function load_tiles(){
       $(tileid).draggable();  //make new tile element draggable using jquery ui
   }
 
+}
+
+function reset_board(){
+
+  $("#tiles").html(" "); //reset tiles space
+
+  for(var i = 0; i < 14; i++){
+    game_board[i].tile = "empty";
+  }
 }
