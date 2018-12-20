@@ -135,6 +135,7 @@ function make_droppable(){  //make blankDrop elements droppable using jqery ui
 function load_tiles(){
 
   $("#tiles").html(" "); //reset tiles space
+  //reset_tiles();
 
   for(var i = 0; i < 7; i++){ //choose random letter from tiles object
       var rand_index = Math.floor((Math.random() * 26) + 0);
