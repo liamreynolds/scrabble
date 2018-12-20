@@ -163,7 +163,8 @@ h1{
   color: #F5F5F5;
 }
 #score{
-  font-size: 140%;
+  font-size: 160%;
+  font-weight: 600;
   margin-left: 10px;
 }
 #gameinfo{
