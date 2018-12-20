@@ -3,7 +3,7 @@
 Assignment 9: Drag & Drop Scrabble
 Liam Reynolds, University of MA, Lowell. CS.
 liam_reynolds@student.uml.edu
-Copyright(c) 25 November 2018. All rights reserved.*/
+Copyright(c) 19 December 2018. All rights reserved.*/
 body{
   margin-top: 10px;
   background-color: #080808;
@@ -17,7 +17,7 @@ body{
   margin: 0 auto;
   width: 1000px;
 }
-.oneline{
+.oneline{ /* used fixed with to center one line of scrabble board */
   margin: 0 auto;
   width: 1000px;
   margin-top: 20px;
@@ -40,12 +40,7 @@ h1{
 #headline{
   border-color: #C8C8C8;
 }
-.drops{
-  font-size: 80%;
-  opacity: 0;
-  color: grey;
-}
-#drop0{
+#drop0{ /* position each drop point along scrabble line image */
   position: relative;
   top: -65px;
   left: 4px;
@@ -151,12 +146,12 @@ h1{
   border-radius: 10px;
   margin-left: 5px;
 }
-#submit{
+#submit{  /*format two different buttons for player actions */
   margin-left: 20px;
 }
 #reset{
   margin-left: 20px;
-  width: 60px;
+  width: 100px;
   font-size: 90%;
   padding: 5px;
   background-color: #080808;

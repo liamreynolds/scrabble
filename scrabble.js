@@ -3,7 +3,7 @@
 Assignment 9: Drag & Drop Scrabble
 Liam Reynolds, University of MA, Lowell. CS.
 liam_reynolds@student.uml.edu
-Copyright(c) 25 November 2018. All rights reserved.*/
+Copyright(c) 19 December 2018. All rights reserved.*/
 
 // data structures used for storing game data were based off of those used in
 // Jason Downing's scrabble game : https://downing.io/GUI/assignment9.html
@@ -122,6 +122,8 @@ function make_droppable(){  //make blankDrop elements droppable using jqery ui
   for(var i = 0; i < 15; i++){  //make all blankDrop elements droppable using jqery ui
     var dropID = "#drop" + i; //set a unique dropID for each to be used in score calculation
     $(dropID).droppable({
+      //used stack overflow post as a guide for tracking specific drag and drop id's
+      //https://stackoverflow.com/questions/5562853/jquery-ui-get-id-of-droppable-element-when-dropped-an-item
       drop: function(event, ui){
         var dragged = ui.draggable.attr("id");  //use dragged object to store which tile was dropped
         var dropped = $(this).attr("id"); //use dropped object to store where dragged was dropped
@@ -134,7 +136,6 @@ function make_droppable(){  //make blankDrop elements droppable using jqery ui
 
 function load_tiles(){
 
-  //$("#tiles").html(" "); //reset tiles space
   reset_board();
 
   for(var i = 0; i < 7; i++){ //choose random letter from tiles object
@@ -157,10 +158,8 @@ function load_tiles(){
 }
 
 function reset_board(){
-
-  $("#tiles").html(" "); //reset tiles space
-
-  for(var i = 0; i < 14; i++){
+  $("#tiles").html(" "); //reset tile space
+  for(var i = 0; i < 14; i++){  //change all game board tiles to empty
     game_board[i].tile = "empty";
   }
 }
