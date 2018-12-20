@@ -137,9 +137,9 @@ function load_tiles(){
   $("#tiles").html(" "); //reset tiles space
 
   for(var i = 0; i < 7; i++){ //choose random letter from tiles object
-      var rand_index = Math.floor((Math.random() * 25) + 0);
+      var rand_index = Math.floor((Math.random() * 26) + 0);
       while(tiles[rand_index].amount == 0){ //ensure letter choice has tile left in amount pool
-          rand_index = random(0, 26);
+          rand_index = Math.floor((Math.random() * 26) + 0);
       }
     tiles[rand_index].amount--; //decrement amount of generated letter from its pool
 
