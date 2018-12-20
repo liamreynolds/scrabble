@@ -119,22 +119,23 @@ function load_tiles(){
   $("#tiles").html(" ");
 
   for(var i = 0; i < 7; i++){
-    var rand_index = random(0, 26);
-    while(tiles[rand_index].amount == 0){
-        rand_index = random(0, 26);
-    }
+      var rand_index = random(0, 26);
+      while(tiles[rand_index].amount == 0){
+          rand_index = random(0, 26);
+      }
+
     tiles[rand_index].amount--;
     var tileid = "tile" + i;
 
     var tile = "<img id ='" + tileid + "' class = 'tileimg" + "' src = " + "'img/scrabbletiles/" +
       tiles[rand_index].letter + ".png" + "'></img>";
-
     tiles_placed[i].letter = tiles[rand_index].letter;
 
     tileid = "#" + tileid;
     $("#tiles").append(tile);
     $(tileid).draggable();
   }
+
 }
 
 function make_droppable(){
@@ -149,6 +150,7 @@ function make_droppable(){
       }
     });
   }
+
 }
 
 function random(min, max) {
