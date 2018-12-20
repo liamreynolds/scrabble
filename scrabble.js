@@ -5,6 +5,9 @@ Liam Reynolds, University of MA, Lowell. CS.
 liam_reynolds@student.uml.edu
 Copyright(c) 25 November 2018. All rights reserved.*/
 
+//data structures used for storing game data were based off those used in Jason Downing's scrabble game :
+//  https://downing.io/GUI/assignment9.html
+
 var tiles = [ //use amount and value when distributing and tallying pieces
     {"letter":"A", "value":1,  "amount":9},
     {"letter":"B", "value":3,  "amount":2},
@@ -35,16 +38,6 @@ var tiles = [ //use amount and value when distributing and tallying pieces
     {"letter":"blank", "value":0,  "amount":2}
 ];
 
-var tiles_placed = [  //store which draggable tile holds which letter piece
-  {"id": "tile0", "letter": " "},
-  {"id": "tile1", "letter": " "},
-  {"id": "tile2", "letter": " "},
-  {"id": "tile3", "letter": " "},
-  {"id": "tile4", "letter": " "},
-  {"id": "tile5", "letter": " "},
-  {"id": "tile6", "letter": " "}
-];
-
 var game_board = [  //used to keep track of which tiles are occupied by a letter
   {"id": "drop0",  "tile": "empty"},
   {"id": "drop1",  "tile": "empty"},
@@ -61,6 +54,16 @@ var game_board = [  //used to keep track of which tiles are occupied by a letter
   {"id": "drop12", "tile": "empty"},
   {"id": "drop13", "tile": "empty"},
   {"id": "drop14", "tile": "empty"}
+];
+
+var tiles_placed = [  //store which draggable tile holds which letter piece
+  {"id": "tile0", "letter": " "},
+  {"id": "tile1", "letter": " "},
+  {"id": "tile2", "letter": " "},
+  {"id": "tile3", "letter": " "},
+  {"id": "tile4", "letter": " "},
+  {"id": "tile5", "letter": " "},
+  {"id": "tile6", "letter": " "}
 ];
 
 function display_score(){
@@ -80,10 +83,10 @@ function display_score(){
 
   score = score * word_double();
   $("#score").html(score);
+
 }
 
-function find_score(letter){  //given an active letter, find its value using tiles object
-
+function find_score(letter){  //given an active letter, find its value using tiles array
   for(var i = 0; i < 27; i++){
     if(tiles[i].letter == letter){
       var score = tiles[i].value;
@@ -106,7 +109,7 @@ function word_double(){ //use to double entire word score if necessary
   else return 1;
 }
 
-function find_tile(dropped){
+function find_tile(dropped){  //return the game_board index that a specified tile was dropped on
   for(var i = 0; i < 15; i++){
     if(game_board[i].id == dropped){
       return i;
@@ -114,45 +117,40 @@ function find_tile(dropped){
   }
 }
 
-function load_tiles(){
+function make_droppable(){  //make blankDrop elements droppable using jqery ui
 
-  $("#tiles").html(" ");
-
-  for(var i = 0; i < 7; i++){
-      var rand_index = random(0, 26);
-      while(tiles[rand_index].amount == 0){
-          rand_index = random(0, 26);
-      }
-
-    tiles[rand_index].amount--;
-    var tileid = "tile" + i;
-
-    var tile = "<img id ='" + tileid + "' class = 'tileimg" + "' src = " + "'img/scrabbletiles/" +
-      tiles[rand_index].letter + ".png" + "'></img>";
-    tiles_placed[i].letter = tiles[rand_index].letter;
-
-    tileid = "#" + tileid;
-    $("#tiles").append(tile);
-    $(tileid).draggable();
-  }
-
-}
-
-function make_droppable(){
-
-  for(var i = 0; i < 15; i++){
-    var dropID = "#drop" + i;
+  for(var i = 0; i < 15; i++){  //make all blankDrop elements droppable using jqery ui
+    var dropID = "#drop" + i; //set a unique dropID for each to be used in score calculation
     $(dropID).droppable({
       drop: function(event, ui){
-        var dragged = ui.draggable.attr("id");
-        var dropped = $(this).attr("id");
-        game_board[find_tile(dropped)].tile = dragged;
+        var dragged = ui.draggable.attr("id");  //use dragged object to store which tile was dropped
+        var dropped = $(this).attr("id"); //use dropped object to store where dragged was dropped
+        game_board[find_tile(dropped)].tile = dragged;  //change game_board index from "empty" to whichever tile was dropped
       }
     });
   }
 
 }
 
-function random(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+function load_tiles(){
+
+  $("#tiles").html(" "); //reset tiles space
+
+  for(var i = 0; i < 7; i++){ //choose random letter from tiles object
+      var rand_index = Math.floor((Math.random() * 26) + 0);
+      while(tiles[rand_index].amount == 0){ //ensure letter choice has tile left in amount pool
+          rand_index = random(0, 26);
+      }
+    tiles[rand_index].amount--; //decrement amount of generated letter from its pool
+
+    var tileid = "tile" + i;
+    var tile = "<img id ='" + tileid + "' class = 'tileimg" + "' src = " + "'img/scrabbletiles/" +
+      tiles[rand_index].letter + ".png" + "'></img>"; //create image element with correct .png
+    tiles_placed[i].letter = tiles[rand_index].letter;  //update tiles_placed with new letter
+
+    tileid = "#" + tileid;
+    $("#tiles").append(tile);
+    $(tileid).draggable();  //make new tile element draggable using jquery ui
+  }
+
 }
