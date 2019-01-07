@@ -57,13 +57,13 @@ var game_board = [  //used to keep track of which tiles are occupied by a letter
 ];
 
 var tiles_placed = [  //store which draggable tile holds which letter piece
-  {"id": "tile0", "letter": " "},
-  {"id": "tile1", "letter": " "},
-  {"id": "tile2", "letter": " "},
-  {"id": "tile3", "letter": " "},
-  {"id": "tile4", "letter": " "},
-  {"id": "tile5", "letter": " "},
-  {"id": "tile6", "letter": " "}
+  {"id": "tile0", "letter": " ", "drop": false},
+  {"id": "tile1", "letter": " ", "drop": false},
+  {"id": "tile2", "letter": " ", "drop": false},
+  {"id": "tile3", "letter": " ", "drop": false},
+  {"id": "tile4", "letter": " ", "drop": false},
+  {"id": "tile5", "letter": " ", "drop": false},
+  {"id": "tile6", "letter": " ", "drop": false}
 ];
 
 function display_score(){
@@ -125,6 +125,7 @@ function make_droppable(){  //make blankDrop elements droppable using jqery ui
       //used stack overflow post as a guide for tracking specific drag and drop id's
       //https://stackoverflow.com/questions/5562853/jquery-ui-get-id-of-droppable-element-when-dropped-an-item
       drop: function(event, ui){
+        ui.draggable.attr("drop") = true;
         var dragged = ui.draggable.attr("id");  //use dragged object to store which tile was dropped
         var dropped = $(this).attr("id"); //use dropped object to store where dragged was dropped
         game_board[find_tile(dropped)].tile = dragged;  //change game_board index from "empty" to whichever tile was dropped
@@ -139,6 +140,7 @@ function load_tiles(){
   reset_board();
 
   for(var i = 0; i < 7; i++){ //choose random letter from tiles object
+    if(tiles_placed[i].drop == false){
       var rand_index = Math.floor((Math.random() * 27) + 0);
       while(tiles[rand_index].amount == 0){ //ensure letter choice has tile left in amount pool
           rand_index = Math.floor((Math.random() * 27) + 0);
@@ -153,8 +155,15 @@ function load_tiles(){
       tileid = "#" + tileid;
       $("#tiles").append(tile);
       $(tileid).draggable();  //make new tile element draggable using jquery ui
+    }
   }
+}
 
+function deal_tiles(){
+
+  for(var i = 0; i < 7 i++){
+
+  }
 }
 
 function reset_board(){
